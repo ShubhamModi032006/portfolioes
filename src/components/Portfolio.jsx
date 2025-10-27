@@ -4,7 +4,6 @@ import { useState } from "react"
 import { ArrowRight, Github } from "lucide-react"
 import { cn } from "../utils"
 import VideoButton from "./VideoButton"
-import { useTheme } from "./ThemeProvider"
 import FadeInSection from "./FadeInSection"
 
 const categories = ["All", "Web", "Figma"]
@@ -75,7 +74,7 @@ const projects = [
     title: "Smellwell",
     category: "Figma",
     image: "https://imgs.search.brave.com/ELfHBTs87TF2P24kqZI3_46dZHTAEFr2ute2byxK3Zw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bmFtZWJyYW5kc3Bl/cmZ1bWUuY29tL2lt/YWdlcy93ZWxjb21lLmpwZw",
-    link: "https://www.figma.com/proto/9tFxecNpUhwc9yXIunCS2P/something-like-cloning?page-id=218%3A73&node-id=227-440&viewport=588%2C159%2C0.11&t=IH2rnykLPCUofh1R-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=227%3A440",
+    EUsC: "https://www.figma.com/proto/9tFxecNpUhwc9yXIunCS2P/something-like-cloning?page-id=218%3A73&node-id=227-440&viewport=588%2C159%2C0.11&t=IH2rnykLPCUofh1R-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=227%3A440",
     description: "A Figma design for a fragrance brand landing page, featuring prototyping and a clean UI.",
     technologies: ["Figma", "Simple UI", "Prototyping"],
     size: "tall",
@@ -87,7 +86,7 @@ const projects = [
     category: "Figma",
     image: "https://wallpapercave.com/wp/wp6916613.jpg",
     link: "https://www.figma.com/proto/9tFxecNpUhwc9yXIunCS2P/something-like-cloning?node-id=90-400&t=uwCXGdlQ3AxLspQy-1",
-    description: "A Figma prototype for a cricket news platform with interactive elements.",
+    fs: "A Figma prototype for a cricket news platform with interactive elements.",
     technologies: ["Figma", "Prototyping"],
     size: "wide",
     bgColor: "bg-[#E9F0E6] dark:bg-[#1F2937] evening:bg-[#D1D9CF]",
@@ -114,29 +113,38 @@ const projects = [
     size: "short",
     bgColor: "bg-[#E9F0E6] dark:bg-[#1F2937] evening:bg-[#D1D9CF]",
   },
+  // --- NEW PROJECTS ADDED BELOW ---
+  {
+    id: 10,
+    title: "Fast-Typing Text Generator",
+    category: "Web",
+    image: "https://placehold.co/600x400/E9F0E6/333?text=Fast+Typing+Project", // <-- Add your image link
+    link: "#", // <-- Add your deployed link
+    github: "#", // <-- Add your GitHub link
+    description: "A web application that generates text with a fast-typing effect, using the Gemini API for dynamic content creation.",
+    technologies: ["Gemini API", "tailwindcss", "Next.js"],
+    size: "medium",
+    bgColor: "bg-[#E9F0E6] dark:bg-[#1F2937] evening:bg-[#D1D9CF]",
+  },
+  {
+    id: 11,
+    title: "Local File Uploader",
+    category: "Web",
+    image: "https://placehold.co/600x400/E9F0E6/333?text=Multer+File+Storage", // <-- Add your image link
+    link: "#", // <-- Add your deployed link
+    github: "#", // <-- Add your GitHub link
+    description: "A backend project demonstrating local file storage implementation using Node.js, Express, and Multer middleware.",
+    technologies: ["Node.js", "Express", "Multer", "JavaScript", "React.jsx"],
+    size: "short",
+    bgColor: "bg-[#E9F0E6] dark:bg-[#1F2937] evening:bg-[#D1D9CF]",
+  },
 ]
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState("All")
-  const { theme } = useTheme()
 
   const filteredProjects =
     activeCategory === "All" ? projects : projects.filter((project) => project.category === activeCategory)
-
-  // Define size classes for masonry-style layout
-  const getSizeClasses = (size) => {
-    switch (size) {
-      case 'tall':
-        return 'md:row-span-3';
-      case 'wide':
-        return 'md:col-span-2';
-      case 'medium':
-        return 'md:row-span-2';
-      case 'short':
-      default:
-        return 'md:row-span-1';
-    }
-  }
 
   const getImageHeight = (size) => {
     switch (size) {
@@ -187,7 +195,7 @@ export default function Portfolio() {
 
         <FadeInSection duration={0.5}>
           <div className="columns-1 md:columns-3 gap-4 md:gap-6 space-y-4 md:space-y-6">
-            {filteredProjects.map((project, index) => (
+            {filteredProjects.map((project) => (
               <div
                 key={project.id}
                 className={cn(
