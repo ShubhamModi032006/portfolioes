@@ -214,14 +214,14 @@ export default function Portfolio() {
                     alt={project.title}
                     className="w-full h-full object-fill transform transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gray-800 dark:bg-gray-200 evening:bg-evening-primary bg-opacity-30 opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-center justify-center z-10">
+                  <div className="absolute inset-0 bg-gray-800 dark:bg-gray-200 evening:bg-evening-primary bg-opacity-30 opacity-0 group-hover:opacity-50 transition-opacity duration-300 flex items-center justify-center z-10">
                     <div className="space-x-4 relative z-20">
                       {project.github && (
                         <a
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center p-2 bg-white dark:bg-gray-200 evening:bg-white rounded-full text-gray-900 dark:text-white evening:text-evening-primary hover:bg-gray-100 dark:hover:bg-gray-300 evening:hover:bg-evening-foreground transition-colors duration-300 cursor-pointer"
+                          className="inline-flex items-center justify-center p-2 bg-white dark:bg-gray-600 evening:bg-white rounded-full text-gray-900 dark:text-white evening:text-evening-primary hover:bg-gray-100 dark:hover:bg-gray-900 evening:hover:bg-evening-foreground transition-colors duration-300 cursor-pointer"
                           onClick={(e) => e.stopPropagation()}
                         >
                           <Github className="w-5 h-5" />
@@ -231,7 +231,7 @@ export default function Portfolio() {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center p-2 bg-white dark:bg-gray-200 evening:bg-white rounded-full text-gray-900 dark:text-white evening:text-evening-primary hover:bg-gray-100 dark:hover:bg-gray-300 evening:hover:bg-evening-foreground transition-colors duration-300 cursor-pointer"
+                        className="inline-flex items-center justify-center p-2 bg-white dark:bg-gray-600 evening:bg-white rounded-full text-gray-900 dark:text-white evening:text-evening-primary hover:bg-gray-100 dark:hover:bg-gray-900 evening:hover:bg-evening-foreground transition-colors duration-300 cursor-pointer"
                         onClick={(e) => e.stopPropagation()}
                       >
                         <ArrowRight className="w-5 h-5" />
