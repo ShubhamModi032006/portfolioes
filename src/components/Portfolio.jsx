@@ -73,7 +73,7 @@ const projects = [
     id: 6,
     title: "Smellwell",
     category: "Figma",
-    image: "https://imgs.search.brave.com/ELfHBTs87TF2P24kqZI3_46dZHTAEFr2ute2byxK3Zw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bmFtZWJyYW5kc3Bl/cmZ1bWUuY29tL2lt/YWdlcy93ZWxjb21lLmpwZw",
+    image: "https://placehold.co/600x400/E9F0E6/333?text=SmellWell",
     EUsC: "https://www.figma.com/proto/9tFxecNpUhwc9yXIunCS2P/something-like-cloning?page-id=218%3A73&node-id=227-440&viewport=588%2C159%2C0.11&t=IH2rnykLPCUofh1R-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=227%3A440",
     description: "A Figma design for a fragrance brand landing page, featuring prototyping and a clean UI.",
     technologies: ["Figma", "Simple UI", "Prototyping"],
@@ -193,7 +193,7 @@ export default function Portfolio() {
           </div>
         </FadeInSection>
 
-        <FadeInSection duration={0.5}>
+        <FadeInSection duration={0.4}>
           <div className="columns-1 md:columns-3 gap-4 md:gap-6 space-y-4 md:space-y-6">
             {filteredProjects.map((project) => (
               <div
@@ -214,7 +214,7 @@ export default function Portfolio() {
                     alt={project.title}
                     className="w-full h-full object-fill transform transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gray-800 dark:bg-gray-200 evening:bg-evening-primary bg-opacity-30 opacity-0 group-hover:opacity-40 transition-opacity duration-300 flex items-center justify-center z-10">
+                  <div className="absolute inset-0 bg-gray-800 dark:bg-gray-200 evening:bg-evening-primary bg-opacity-30 opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-center justify-center z-10">
                     <div className="space-x-4 relative z-20">
                       {project.github && (
                         <a
