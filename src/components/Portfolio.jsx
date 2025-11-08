@@ -119,10 +119,10 @@ const projects = [
     title: "Fast-Typing Text Generator",
     category: "Web",
     image: "https://placehold.co/600x400/E9F0E6/333?text=Fast+Typing+Project", // <-- Add your image link
-    link: "#", // <-- Add your deployed link
-    github: "#", // <-- Add your GitHub link
+    link: "https://gemini-type.vercel.app/", // <-- Add your deployed link
+    github: "https://github.com/ShubhamModi032006/Gemini-type", // <-- Add your GitHub link
     description: "A web application that generates text with a fast-typing effect, using the Gemini API for dynamic content creation.",
-    technologies: ["Gemini API", "tailwindcss", "Next.js"],
+    technologies: ["Gemini API", "tailwindcss", "Next.ts"],
     size: "medium",
     bgColor: "bg-[#E9F0E6] dark:bg-[#1F2937] evening:bg-[#D1D9CF]",
   },
