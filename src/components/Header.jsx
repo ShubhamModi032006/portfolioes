@@ -21,7 +21,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState("")
   const [isDragging, setIsDragging] = useState(false)
-  const [position, setPosition] = useState({ x: 70, y: 75 })
+  const [position, setPosition] = useState({ x: 60, y: 45 })
   const [mounted, setMounted] = useState(false)
   const [showFloatingNav, setShowFloatingNav] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
@@ -186,7 +186,7 @@ export default function Header() {
     setShowFloatingNav(!showFloatingNav)
     if (showFloatingNav) {
       // When switching to the fixed header, reset position for when we come back to floating
-      setPosition({ x: 20, y: 20 })
+      setPosition({ x: 60, y: 45 })
     }
   }
 
