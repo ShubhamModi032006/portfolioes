@@ -124,8 +124,8 @@ const projects = [
     link: "#",
     github: "#",
     description: "Backend project for local file storage using Node.js and Multer.",
-    technologies: ["Node.js", "Multer"],
-    size: "short",
+    technologies: ["Node.js", "Multer", "React JSX", "Express", "MongoDB", "JWT"],
+    size: "tall",
   },
 ]
 
