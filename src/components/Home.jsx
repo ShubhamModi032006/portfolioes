@@ -25,7 +25,7 @@ export default function Home() {
         transition={{ duration: 0.5, ease: "easeInOut" }}
       >
         {/* Misty Frosted Glass Container */}
-        <div className="w-full max-w-6xl mx-auto p-8 md:p-12 lg:p-16 bg-white/40 dark:bg-gray-900/40 backdrop-blur-[40px] border border-white/40 dark:border-white/10 rounded-3xl shadow-2xl shadow-gray-200/80 dark:shadow-black/50 relative overflow-hidden">
+        <div className="w-full max-w-6xl mx-auto p-8 md:p-12 lg:p-16 bg-white/40 dark:bg-gray-900/40 backdrop-blur-[40px] border border-white/40 dark:border-white/10 rounded-3xl shadow-2xl dark:shadow-black/50 relative overflow-hidden">
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-12 relative z-20">
 
