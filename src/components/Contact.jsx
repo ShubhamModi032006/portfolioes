@@ -53,6 +53,19 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-16 md:py-24 dark:bg-gray-900 evening:bg-evening-background w-screen -ml-[13%] -mr-[10%]">
+
+      <FadeInSection duration={0.3}>
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white evening:text-evening-primary mb-4">
+            Let's Connect
+          </h2>
+          <div className="w-20 h-1 bg-blue-600 dark:bg-blue-500 evening:bg-evening-secondary mx-auto rounded-full mb-4"></div>
+          <p className="text-gray-600 dark:text-gray-400 evening:text-evening-foreground max-w-xl mx-auto">
+            Have a project in mind or just want to say hi? I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+          </p>
+        </div>
+      </FadeInSection>
+
       <div className="px-[10%]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
           <FadeInSection duration={0.3}>
@@ -108,67 +121,80 @@ export default function Contact() {
           <FadeInSection duration={0.4}>
             <div className="border-2 border-[#030712] dark:border-gray-700 evening:border-evening-primary rounded-lg p-8 bg-[#E5E0D8] dark:bg-gray-800 evening:bg-[#E5E0D8]">
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 evening:text-evening-primary mb-8">Write me your project</h3>
-            
-            {success && (
-              <div className="mb-6 p-4 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 rounded-lg">
-                Thank you! Your message has been sent successfully.
-              </div>
-            )}
-            
-            {error && (
-              <div className="mb-6 p-4 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200 rounded-lg">
-                Something went wrong. Please try again or contact directly via email.
-              </div>
-            )}
-            
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="text-gray-600 dark:text-gray-400 evening:text-evening-foreground mb-2 block">Name</label>
-                <Input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Insert your name"
-                  required
-                  className="w-full p-4 rounded-lg border border-gray-300 dark:border-gray-700 evening:border-evening-foreground focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-600 evening:focus:ring-evening-primary focus:border-transparent bg-white text-gray-900 dark:bg-[#030712] dark:text-gray-100 evening:bg-white evening:text-gray-900"
-                />
-              </div>
-              <div>
-                <label className="text-gray-600 dark:text-gray-400 evening:text-evening-foreground mb-2 block">Mail</label>
-                <Input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Insert your email"
-                  required
-                  className="w-full p-4 rounded-lg border border-gray-300 dark:border-gray-700 evening:border-evening-foreground focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-600 evening:focus:ring-evening-primary focus:border-transparent bg-white text-gray-900 dark:bg-[#030712] dark:text-gray-100 evening:bg-white evening:text-gray-900"
-                />
-              </div>
-              <div>
-                <label className="text-gray-600 dark:text-gray-400 evening:text-evening-foreground mb-2 block">Project</label>
-                <Textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Write your project"
-                  required
-                  className="w-full p-4 rounded-lg border border-gray-300 dark:border-gray-700 evening:border-evening-foreground focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-600 evening:focus:ring-evening-primary focus:border-transparent min-h-[150px] bg-white text-gray-900 dark:bg-[#030712] dark:text-gray-100 evening:bg-white evening:text-gray-900"
-                />
-              </div>
-              
-              {/* Add a hidden field for the recipient email */}
-              <input type="hidden" name="to_email" value="shubham.modi.cg@gmail.com" />
 
-              <Button 
-                type="submit" 
-                disabled={loading}
-                                  className={`bg-gray-800 hover:bg-gray-700 dark:bg-[#030712] dark:hover:bg-gray-600 evening:bg-gray-800 evening:hover:bg-gray-700 text-white dark:text-white evening:text-white rounded-md px-6 py-6 flex items-center gap-2 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
-              >
-                {loading ? 'Sending...' : 'Send Message'} <Send className="w-4 h-4" />
-              </Button>
+              {success && (
+                <div className="mb-6 p-4 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 rounded-lg">
+                  Thank you! Your message has been sent successfully.
+                </div>
+              )}
+
+              {error && (
+                <div className="mb-6 p-4 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200 rounded-lg">
+                  Something went wrong. Please try again or contact directly via email.
+                </div>
+              )}
+
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label className="text-gray-600 dark:text-gray-400 evening:text-evening-foreground mb-2 block">Name</label>
+                  <Input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Insert your name"
+                    required
+                    className="w-full p-4 rounded-lg border border-gray-300 dark:border-gray-700 evening:border-evening-foreground focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-600 evening:focus:ring-evening-primary focus:border-transparent bg-white text-gray-900 dark:bg-[#030712] dark:text-gray-100 evening:bg-white evening:text-gray-900"
+                  />
+                </div>
+                <div>
+                  <label className="text-gray-600 dark:text-gray-400 evening:text-evening-foreground mb-2 block">Mail</label>
+                  <Input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Insert your email"
+                    required
+                    className="w-full p-4 rounded-lg border border-gray-300 dark:border-gray-700 evening:border-evening-foreground focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-600 evening:focus:ring-evening-primary focus:border-transparent bg-white text-gray-900 dark:bg-[#030712] dark:text-gray-100 evening:bg-white evening:text-gray-900"
+                  />
+                </div>
+                <div>
+                  <label className="text-gray-600 dark:text-gray-400 evening:text-evening-foreground mb-2 block">Project</label>
+                  <Textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Write your project"
+                    required
+                    className="w-full p-4 rounded-lg border border-gray-300 dark:border-gray-700 evening:border-evening-foreground focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-600 evening:focus:ring-evening-primary focus:border-transparent min-h-[150px] bg-white text-gray-900 dark:bg-[#030712] dark:text-gray-100 evening:bg-white evening:text-gray-900"
+                  />
+                </div>
+
+                {/* Add a hidden field for the recipient email */}
+                <input type="hidden" name="to_email" value="shubham.modi.cg@gmail.com" />
+
+                <Button
+                  type="submit"
+                  disabled={loading}
+                  className={`bg-gray-800 hover:bg-gray-700 dark:bg-[#030712] dark:hover:bg-gray-600 evening:bg-gray-800 evening:hover:bg-gray-700 text-white dark:text-white evening:text-white rounded-md px-6 py-6 flex items-center gap-2 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
+                >
+                  {loading ? 'Sending...' : 'Send Message'} <Send className="w-4 h-4" />
+                </Button>
               </form>
+
+
+              <div className="mt-28 p-4 bg-green-50 dark:bg-green-900/10 evening:bg-[#E9F0E6] rounded-xl border border-green-100 dark:border-green-800/30 evening:border-gray-400/50 flex items-center gap-3">
+                <span className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                </span>
+                <p className="text-sm font-medium text-green-700 dark:text-green-400 evening:text-evening-primary">
+                  Currently available for freelance & full-time roles.
+                </p>
+              </div>
+
+
             </div>
           </FadeInSection>
         </div>

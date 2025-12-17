@@ -1,13 +1,14 @@
 "use client"
 
 import { useState } from "react"
-import { ArrowRight, Github } from "lucide-react"
+import { ArrowRight, Github, ExternalLink, Layers } from "lucide-react"
 import { cn } from "../utils"
 import VideoButton from "./VideoButton"
 import FadeInSection from "./FadeInSection"
 
 const categories = ["All", "Web", "Figma"]
 
+// Updated Project Data with Bento-style coloring
 const projects = [
   {
     id: 1,
@@ -17,10 +18,9 @@ const projects = [
     link: "https://fin-ctrl-frontend-1.onrender.com",
     github: "https://github.com/shubhamiscodding/Fin_Ctrl",
     description: "A comprehensive financial management system that helps you track expenses, manage budgets, and analyze spending patterns effectively.",
-    technologies: ["MongoDB", "Express", "React", "Node.js", "Tailwindcss", "JavaScript"],
+    technologies: ["MongoDB", "Express", "React", "Node.js", "Tailwind"],
     demoVideo: "https://res.cloudinary.com/dqhn4dq02/video/upload/v1740999850/p5ditex5ags07kvajspz.mp4",
-    size: "tall", // tall card
-    bgColor: "bg-[#E9F0E6] dark:bg-[#1F2937] evening:bg-[#D1D9CF]", // updated colors
+    size: "tall",
   },
   {
     id: 2,
@@ -32,7 +32,6 @@ const projects = [
     description: "A pixel-perfect clone of the Progcap platform, showcasing advanced React implementation and responsive design techniques.",
     technologies: ["React", "CSS", "JavaScript"],
     size: "medium",
-    bgColor: "bg-[#E9F0E6] dark:bg-[#1F2937] evening:bg-[#D1D9CF]",
   },
   {
     id: 3,
@@ -41,10 +40,9 @@ const projects = [
     image: "https://images.apollo247.in/images/pharmacy_logo.svg?tr=q-70,w-100,dpr-2,c-at_max",
     link: "https://apolloclone.onrender.com",
     github: "https://github.com/shubhamiscodding/apolloclone",
-    description: "A faithful recreation of the Apollo healthcare platform interface, demonstrating attention to detail in UI/UX design.",
+    description: "A faithful recreation of the Apollo healthcare platform interface.",
     technologies: ["HTML", "CSS"],
     size: "short",
-    bgColor: "bg-[#E9F0E6] dark:bg-[#1F2937] evening:bg-[#D1D9CF]",
   },
   {
     id: 4,
@@ -56,7 +54,6 @@ const projects = [
     description: "A feature-rich YouTube clone that implements core functionalities using React and external APIs.",
     technologies: ["React", "API Integration"],
     size: "wide",
-    bgColor: "bg-[#E9F0E6] dark:bg-[#1F2937] evening:bg-[#D1D9CF]",
   },
   {
     id: 5,
@@ -65,20 +62,18 @@ const projects = [
     image: "https://res.cloudinary.com/dqhn4dq02/image/upload/v1741248835/hudrwpm8ah1hnlfo0ahm.png",
     link: "https://www.figma.com/proto/DNBtQzukvRqvlJOR15WNiD/FINAL-PROJECT?node-id=165-316&t=IJSgkeDiJ1yPqsuJ-1",
     description: "A sleek Figma prototype for a financial management tool with a simple and intuitive UI.",
-    technologies: ["Figma", "Simple UI"],
+    technologies: ["Figma", "UI Design"],
     size: "short",
-    bgColor: "bg-[#E9F0E6] dark:bg-[#1F2937] evening:bg-[#D1D9CF]",
   },
   {
     id: 6,
     title: "Smellwell",
     category: "Figma",
     image: "https://placehold.co/600x400/E9F0E6/333?text=SmellWell",
-    EUsC: "https://www.figma.com/proto/9tFxecNpUhwc9yXIunCS2P/something-like-cloning?page-id=218%3A73&node-id=227-440&viewport=588%2C159%2C0.11&t=IH2rnykLPCUofh1R-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=227%3A440",
-    description: "A Figma design for a fragrance brand landing page, featuring prototyping and a clean UI.",
-    technologies: ["Figma", "Simple UI", "Prototyping"],
+    link: "https://www.figma.com/proto/9tFxecNpUhwc9yXIunCS2P/something-like-cloning?page-id=218%3A73&node-id=227-440&viewport=588%2C159%2C0.11&t=IH2rnykLPCUofh1R-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=227%3A440",
+    description: "A fragrance brand landing page design, featuring advanced prototyping.",
+    technologies: ["Figma", "Prototyping"],
     size: "tall",
-    bgColor: "bg-[#E9F0E6] dark:bg-[#1F2937] evening:bg-[#D1D9CF]",
   },
   {
     id: 7,
@@ -86,10 +81,9 @@ const projects = [
     category: "Figma",
     image: "https://wallpapercave.com/wp/wp6916613.jpg",
     link: "https://www.figma.com/proto/9tFxecNpUhwc9yXIunCS2P/something-like-cloning?node-id=90-400&t=uwCXGdlQ3AxLspQy-1",
-    fs: "A Figma prototype for a cricket news platform with interactive elements.",
-    technologies: ["Figma", "Prototyping"],
+    description: "A Figma prototype for a cricket news platform with interactive elements.",
+    technologies: ["Figma", "Interaction"],
     size: "wide",
-    bgColor: "bg-[#E9F0E6] dark:bg-[#1F2937] evening:bg-[#D1D9CF]",
   },
   {
     id: 8,
@@ -98,45 +92,40 @@ const projects = [
     image: "https://res.cloudinary.com/dqhn4dq02/image/upload/v1745691177/czc457xnddhzuvobj8xt.jpg",
     link: "https://www.figma.com/proto/9tFxecNpUhwc9yXIunCS2P/something-like-cloning?node-id=43-87&t=uwCXGdlQ3AxLspQy-1",
     description: "A Figma recreation of Instagram's interface with prototyping features.",
-    technologies: ["Figma", "Prototyping"],
+    technologies: ["Figma", "Clone"],
     size: "medium",
-    bgColor: "bg-[#E9F0E6] dark:bg-[#1F2937] evening:bg-[#D1D9CF]",
   },
   {
     id: 9,
-    title: "One Page Social Media Design",
+    title: "Social Media One-Page",
     category: "Figma",
     image: "https://res.cloudinary.com/dqhn4dq02/image/upload/v1740113499/hinsjwtehr2aoxyj0f0s.png",
     link: "https://www.figma.com/proto/1rN6JDvA6MVeTwyABaoaHO/EXAM-BUT-UNIQE-IDEA?page-id=0%3A1&node-id=2-2&p=f&viewport=500%2C484%2C0.63&t=YXlQOTdePAZgLyKv-1&scaling=min-zoom&content-scaling=fixed",
     description: "A unique one-page social media design created in Figma with a creative layout.",
-    technologies: ["Figma"],
+    technologies: ["Figma", "Layout"],
     size: "short",
-    bgColor: "bg-[#E9F0E6] dark:bg-[#1F2937] evening:bg-[#D1D9CF]",
   },
-  // --- NEW PROJECTS ADDED BELOW ---
   {
     id: 10,
-    title: "Fast-Typing Text Generator",
+    title: "Fast-Typing Generator",
     category: "Web",
-    image: "https://placehold.co/600x400/E9F0E6/333?text=Fast+Typing+Project", // <-- Add your image link
-    link: "https://gemini-type.vercel.app/", // <-- Add your deployed link
-    github: "https://github.com/ShubhamModi032006/Gemini-type", // <-- Add your GitHub link
-    description: "A web application that generates text with a fast-typing effect, using the Gemini API for dynamic content creation.",
-    technologies: ["Gemini API", "tailwindcss", "Next.ts"],
+    image: "https://placehold.co/600x400/E9F0E6/333?text=Fast+Typing",
+    link: "https://gemini-type.vercel.app/",
+    github: "https://github.com/ShubhamModi032006/Gemini-type",
+    description: "Generates text with a fast-typing effect using the Gemini API.",
+    technologies: ["Gemini API", "Next.js"],
     size: "medium",
-    bgColor: "bg-[#E9F0E6] dark:bg-[#1F2937] evening:bg-[#D1D9CF]",
   },
   {
     id: 11,
     title: "Local File Uploader",
     category: "Web",
-    image: "https://placehold.co/600x400/E9F0E6/333?text=Multer+File+Storage", // <-- Add your image link
-    link: "#", // <-- Add your deployed link
-    github: "#", // <-- Add your GitHub link
-    description: "A backend project demonstrating local file storage implementation using Node.js, Express, and Multer middleware.",
-    technologies: ["Node.js", "Express", "Multer", "JavaScript", "React.jsx"],
+    image: "https://placehold.co/600x400/E9F0E6/333?text=Multer+Storage",
+    link: "#",
+    github: "#",
+    description: "Backend project for local file storage using Node.js and Multer.",
+    technologies: ["Node.js", "Multer"],
     size: "short",
-    bgColor: "bg-[#E9F0E6] dark:bg-[#1F2937] evening:bg-[#D1D9CF]",
   },
 ]
 
@@ -146,45 +135,43 @@ export default function Portfolio() {
   const filteredProjects =
     activeCategory === "All" ? projects : projects.filter((project) => project.category === activeCategory)
 
+  // Masonry layout height logic
   const getImageHeight = (size) => {
     switch (size) {
-      case 'tall':
-        return 'h-72 md:h-96';
-      case 'wide':
-        return 'h-56 md:h-64';
-      case 'medium':
-        return 'h-64 md:h-72';
-      case 'short':
-      default:
-        return 'h-48 md:h-56';
+      case 'tall': return 'h-64 md:h-80';
+      case 'wide': return 'h-48 md:h-60';
+      case 'medium': return 'h-56 md:h-72';
+      case 'short': default: return 'h-40 md:h-48';
     }
   }
 
-  // Get consistent padding for cards
-  const getCardPadding = () => {
-    return 'p-4 md:p-5';
-  }
-
   return (
-    <section id="portfolio" className="py-16 bg-white dark:bg-gray-900 evening:bg-evening-background text-gray-900 dark:text-white evening:text-evening-primary">
-      <div className="">
+    <section id="portfolio" className="py-20 bg-white dark:bg-gray-950 evening:bg-evening-background text-gray-900 dark:text-white evening:text-evening-primary min-h-screen">
+      <div className="container mx-auto px-4">
+        
+        {/* --- Header --- */}
         <FadeInSection duration={0.3}>
-          <div className="text-left mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-2">PROJECTS</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Selected Work</h2>
+            <div className="w-20 h-1 bg-blue-600 dark:bg-blue-500 evening:bg-evening-secondary mx-auto rounded-full mb-4"></div>
+            <p className="text-gray-600 dark:text-gray-400 evening:text-evening-foreground max-w-xl mx-auto">
+              A collection of projects exploring web development, design systems, and creative prototypes.
+            </p>
           </div>
         </FadeInSection>
 
+        {/* --- Filters --- */}
         <FadeInSection duration={0.4}>
-          <div className="flex gap-4 mb-8 overflow-x-auto pb-2 border-b border-gray-800 dark:border-gray-200 evening:border-evening-foreground">
+          <div className="flex justify-center gap-3 mb-12 flex-wrap">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
                 className={cn(
-                  "px-6 py-2 border border-gray-800 dark:border-white evening:border-evening-primary rounded-full text-sm transition-colors whitespace-nowrap",
+                  "px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border",
                   activeCategory === category
-                    ? "bg-gray-800 dark:bg-white evening:bg-evening-primary text-white dark:text-gray-900 evening:text-evening-background"
-                    : "bg-transparent text-gray-800 dark:text-white evening:text-evening-primary hover:bg-gray-100 dark:hover:bg-white/10 evening:hover:bg-evening-foreground"
+                    ? "bg-gray-900 dark:bg-white evening:bg-evening-primary text-white dark:text-black evening:text-evening-background border-transparent shadow-lg transform scale-105"
+                    : "bg-transparent border-gray-300 dark:border-gray-700 evening:border-evening-secondary text-gray-600 dark:text-gray-400 evening:text-evening-primary hover:bg-gray-100 dark:hover:bg-gray-800 evening:hover:bg-evening-secondary/20"
                 )}
               >
                 {category}
@@ -193,36 +180,38 @@ export default function Portfolio() {
           </div>
         </FadeInSection>
 
+        {/* --- Projects Grid (Masonry) --- */}
         <FadeInSection duration={0.4}>
-          <div className="columns-1 md:columns-3 gap-4 md:gap-6 space-y-4 md:space-y-6">
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
                 className={cn(
-                  "relative rounded-lg overflow-hidden transition-all duration-300 break-inside-avoid mb-4 md:mb-6",
-                  "before:absolute before:inset-0 before:border-2 before:border-[#030712] dark:before:border-gray-700 evening:before:border-evening-primary before:rounded-lg",
-                  "hover:before:border-[#030712] dark:hover:before:border-gray-500 evening:hover:before:border-evening-secondary",
-                  "after:absolute after:inset-0 after:border after:border-[#030712] dark:after:border-gray-800 evening:after:border-evening-secondary after:rounded-lg",
-                  "hover:shadow-xl hover:shadow-gray-100/20 dark:hover:shadow-gray-900/30",
-                  "flex flex-col group",
-                  project.bgColor,
+                  "break-inside-avoid relative rounded-2xl overflow-hidden transition-all duration-300 group",
+                  "border border-white/60 dark:border-white/10 evening:border-evening-secondary",
+                  "shadow-lg hover:shadow-xl hover:-translate-y-2 border-white/80 dark:border-gray-700 evening:border-evening-secondary/80",
+                  // Theme Colors matched to Skills/About
+                  "bg-white/60 dark:bg-gray-800/60 evening:bg-[#D1D9CF]/60 backdrop-blur-md"
                 )}
               >
-                <div className={cn("relative overflow-hidden group", getImageHeight(project.size))}>
+                {/* Image Container */}
+                <div className={cn("relative overflow-hidden w-full", getImageHeight(project.size))}>
                   <img
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
-                    className="w-full h-full object-fill transform transition-transform duration-500"
+                    className="w-full h-full object-fit transform transition-transform duration-700 group-hover:scale-110 "
                   />
-                  <div className="absolute inset-0 bg-gray-800 dark:bg-gray-200 evening:bg-evening-primary bg-opacity-30 opacity-0 group-hover:opacity-50 transition-opacity duration-300 flex items-center justify-center z-10">
-                    <div className="space-x-4 relative z-20">
+                  
+                  {/* Overlay on Hover */}
+                  <div className="absolute inset-0 bg-black/40 dark:bg-black/60 evening:bg-[#D1D9CF]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                    <div className="flex gap-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                       {project.github && (
                         <a
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center p-2 bg-white dark:bg-gray-600 evening:bg-white rounded-full text-gray-900 dark:text-white evening:text-evening-primary hover:bg-gray-100 dark:hover:bg-gray-900 evening:hover:bg-evening-foreground transition-colors duration-300 cursor-pointer"
-                          onClick={(e) => e.stopPropagation()}
+                          className="p-3 bg-white dark:bg-gray-800 evening:bg-evening-primary rounded-full text-gray-900 dark:text-white evening:text-evening-background hover:scale-110 transition-transform"
+                          title="View Code"
                         >
                           <Github className="w-5 h-5" />
                         </a>
@@ -231,37 +220,50 @@ export default function Portfolio() {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center p-2 bg-white dark:bg-gray-600 evening:bg-white rounded-full text-gray-900 dark:text-white evening:text-evening-primary hover:bg-gray-100 dark:hover:bg-gray-900 evening:hover:bg-evening-foreground transition-colors duration-300 cursor-pointer"
-                        onClick={(e) => e.stopPropagation()}
+                        className="p-3 bg-white dark:bg-gray-800 evening:bg-evening-primary rounded-full text-gray-900 dark:text-white evening:text-evening-background hover:scale-110 transition-transform"
+                        title="Live Demo"
                       >
-                        <ArrowRight className="w-5 h-5" />
+                        <ExternalLink className="w-5 h-5" />
                       </a>
                     </div>
                   </div>
                 </div>
-                <div className={cn(getCardPadding(), "flex-1 flex flex-col")}>
-                  <div className="flex justify-between items-center mb-2">
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white evening:text-evening-primary">{project.title}</h3>
+
+                {/* Content Body */}
+                <div className="p-6">
+                  <div className="flex justify-between items-start mb-3">
+                    <div>
+                      <span className="text-xs font-bold tracking-wider text-blue-600 dark:text-blue-400 evening:text-evening-primary uppercase mb-1 block">
+                        {project.category}
+                      </span>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white evening:text-evening-primary leading-tight">
+                        {project.title}
+                      </h3>
+                    </div>
                   </div>
 
-                  <p className="text-gray-600 dark:text-gray-400 evening:text-evening-foreground text-sm mb-3 line-clamp-2">{project.description}</p>
+                  <p className="text-gray-600 dark:text-gray-300 evening:text-evening-foreground text-sm leading-relaxed mb-4 line-clamp-3">
+                    {project.description}
+                  </p>
 
-                  <div className="flex flex-wrap gap-2 mb-auto">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies && project.technologies.slice(0, 3).map((tech, index) => (
-                      <span key={index} className="text-xs bg-gray-100 dark:bg-gray-800 evening:bg-white text-gray-800 dark:text-gray-300 evening:text-evening-primary px-2 py-1 rounded-full">
+                      <span 
+                        key={index} 
+                        className="text-xs font-medium px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-700 evening:bg-[#E9F0E6] text-gray-700 dark:text-gray-200 evening:text-evening-primary border border-gray-200 dark:border-gray-600 evening:border-gray-400"
+                      >
                         {tech}
                       </span>
                     ))}
                   </div>
 
                   {project.demoVideo && (
-                    <div className="mt-3">
-                      <VideoButton
+                    <div className="pt-4 border-t border-gray-100 dark:border-gray-700 evening:border-gray-400/50">
+                       <VideoButton
                         videoUrl={project.demoVideo}
                         videoTitle={`${project.title} Demo`}
-                        text="Browse product"
-                        iconSize="w-4 h-4"
-                        className="text-sm border border-gray-800 dark:border-white evening:border-evening-primary text-gray-800 dark:text-white evening:text-evening-primary hover:bg-gray-800 hover:text-white dark:hover:bg-white evening:hover:bg-evening-primary evening:hover:text-evening-background rounded-full px-4 py-2"
+                        text="Watch Preview"
+                        className="w-full justify-center text-sm border border-gray-200 dark:border-gray-700 evening:border-evening-secondary text-gray-700 dark:text-gray-300 evening:text-evening-primary hover:bg-gray-50 dark:hover:bg-gray-800 evening:hover:bg-[#E9F0E6]"
                       />
                     </div>
                   )}
@@ -270,6 +272,7 @@ export default function Portfolio() {
             ))}
           </div>
         </FadeInSection>
+        
       </div>
     </section>
   )
