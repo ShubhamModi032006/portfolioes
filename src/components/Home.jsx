@@ -32,33 +32,27 @@ export default function Home() {
             {/* Left Side: Social Icons */}
             <FadeInSection duration={0.3}>
               <div className="flex flex-col items-center justify-center space-y-4 order-2 md:order-1 border-t md:border-t-0 md:border-r border-gray-200 dark:border-gray-700 pt-6 md:pt-0 md:pr-6">
-                
-                {/* Website */}
-                <a href="https://shubhammodi.netlify.app/" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-blue-600 transition-colors group">
-                  <Globe className="w-5 h-5 text-gray-600 dark:text-gray-400 evening:text-evening-foreground mr-4 group-hover:scale-110 transition-transform" />
-                  <div className="w-8 h-[1px] bg-gray-300 dark:bg-gray-700 evening:bg-evening-foreground group-hover:bg-blue-600 transition-colors"></div>
-                </a>
 
                 {/* GitHub */}
-                <a href="https://github.com/shubhamiscodding" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-gray-900 dark:hover:text-white transition-colors group">
+                <a href="https://github.com/ShubhamModi032006" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-gray-900 dark:hover:text-white transition-colors group">
                   <Github className="w-5 h-5 text-gray-600 dark:text-gray-400 evening:text-evening-foreground mr-4 group-hover:scale-110 transition-transform" />
                   <div className="w-8 h-[1px] bg-gray-300 dark:bg-gray-700 evening:bg-evening-foreground group-hover:bg-gray-900 dark:group-hover:bg-white transition-colors"></div>
                 </a>
 
                 {/* LeetCode (Fixed: Used Code2 instead of CodeXml) */}
-                <a href="https://leetcode.com/u/shubhamiscodding/" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-yellow-600 transition-colors group">
+                <a href="https://leetcode.com/u/ShubhamModi032006/" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-yellow-600 transition-colors group">
                   <Code2 className="w-5 h-5 text-gray-600 dark:text-gray-400 evening:text-evening-foreground mr-4 group-hover:scale-110 transition-transform" />
                   <div className="w-8 h-[1px] bg-gray-300 dark:bg-gray-700 evening:bg-evening-foreground group-hover:bg-yellow-600 transition-colors"></div>
                 </a>
 
                 {/* Twitter / X */}
-                <a href="https://twitter.com/your_handle" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-blue-400 transition-colors group">
+                <a href="https://x.com/shubham_modi_cg" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-blue-400 transition-colors group">
                   <Twitter className="w-5 h-5 text-gray-600 dark:text-gray-400 evening:text-evening-foreground mr-4 group-hover:scale-110 transition-transform" />
                   <div className="w-8 h-[1px] bg-gray-300 dark:bg-gray-700 evening:bg-evening-foreground group-hover:bg-blue-400 transition-colors"></div>
                 </a>
 
                 {/* Instagram */}
-                <a href="https://instagram.com/your_handle" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-pink-600 transition-colors group">
+                <a href="https://www.instagram.com/shubham03.2006/" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-pink-600 transition-colors group">
                   <Instagram className="w-5 h-5 text-gray-600 dark:text-gray-400 evening:text-evening-foreground mr-4 group-hover:scale-110 transition-transform" />
                   <div className="w-8 h-[1px] bg-gray-300 dark:bg-gray-700 evening:bg-evening-foreground group-hover:bg-pink-600 transition-colors"></div>
                 </a>
