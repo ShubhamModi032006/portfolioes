@@ -1,5 +1,5 @@
 import { useState, useRef } from "react"
-import { Mail, MessageSquare, Send, ArrowRight } from "lucide-react"
+import { Mail, MessageSquare, Send, ArrowRight, Github, Linkedin } from "lucide-react"
 import { Button } from "./ui/Button"
 import { Input } from "./ui/Input"
 import { Textarea } from "./ui/Textarea"
@@ -72,48 +72,58 @@ export default function Contact() {
             <div className="border-2 border-[#030712] dark:border-gray-700 evening:border-evening-primary rounded-lg p-8 bg-[#E5E0D8] dark:bg-gray-800 evening:bg-[#E5E0D8]">
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 evening:text-evening-primary mb-8">Talk to me</h3>
               <div className="space-y-6">
-                <div className="bg-white dark:bg-[#030712] evening:bg-white p-6 rounded-lg shadow-sm flex flex-col items-center text-center">
-                  <Mail className="w-8 h-8 text-gray-800 dark:text-gray-200 evening:text-evening-primary mb-4" />
-                  <h4 className="text-lg font-medium text-gray-900 dark:text-gray-100 evening:text-evening-primary mb-1">Email</h4>
-                  <p className="text-gray-600 dark:text-gray-400 evening:text-evening-foreground mb-4">shubham.modi.cg@gmail.com</p>
-                  <a
-                    href="mailto:shubham.modi.cg@gmail.com"
-                    className="inline-flex items-center text-gray-600 dark:text-gray-400 evening:text-evening-foreground hover:text-gray-900 dark:hover:text-gray-200 evening:hover:text-evening-primary group"
-                  >
-                    <span className="mr-2">Write me</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </a>
-                </div>
 
-                <div className="bg-white dark:bg-[#030712] evening:bg-white p-6 rounded-lg shadow-sm flex flex-col items-center text-center">
-                  <MessageSquare className="w-8 h-8 text-gray-800 dark:text-gray-200 evening:text-evening-primary mb-4" />
-                  <h4 className="text-lg font-medium text-gray-900 dark:text-gray-100 evening:text-evening-primary mb-1">GitHub</h4>
-                  <p className="text-gray-600 dark:text-gray-400 evening:text-evening-foreground mb-4">shubhamiscodding</p>
-                  <a
-                    href="https://github.com/shubhamiscodding"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-gray-600 dark:text-gray-400 evening:text-evening-foreground hover:text-gray-900 dark:hover:text-gray-200 evening:hover:text-evening-primary group"
-                  >
-                    <span className="mr-2">Visit profile</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </a>
-                </div>
+                {/* --- EMAIL BOX --- */}
+                <a
+                  href="mailto:shubham.modi.cg@gmail.com"
+                  className="group block bg-white dark:bg-[#030712] evening:bg-white p-6 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300" // Added 'group block' and hover effect here
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <Mail className="w-8 h-8 text-gray-800 dark:text-gray-200 evening:text-evening-primary mb-4" />
+                    <h4 className="text-lg font-medium text-gray-900 dark:text-gray-100 evening:text-evening-primary mb-1">Email</h4>
+                    <p className="text-gray-600 dark:text-gray-400 evening:text-evening-foreground mb-4">shubham.modi.cg@gmail.com</p>
+                    <div className="inline-flex items-center text-gray-600 dark:text-gray-400 evening:text-evening-foreground group-hover:text-gray-900 dark:group-hover:text-gray-200 evening:group-hover:text-evening-primary">
+                      <span className="mr-2">Write me</span>
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </div>
+                  </div>
+                </a>
 
-                <div className="bg-white dark:bg-[#030712] evening:bg-white p-6 rounded-lg shadow-sm flex flex-col items-center text-center">
-                  <MessageSquare className="w-8 h-8 text-gray-800 dark:text-gray-200 evening:text-evening-primary mb-4" />
-                  <h4 className="text-lg font-medium text-gray-900 dark:text-gray-100 evening:text-evening-primary mb-1">LinkedIn</h4>
-                  <p className="text-gray-600 dark:text-gray-400 evening:text-evening-foreground mb-4">shubham-modi-cg</p>
-                  <a
-                    href="https://www.linkedin.com/in/shubham-modi-cg/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-gray-600 dark:text-gray-400 evening:text-evening-foreground hover:text-gray-900 dark:hover:text-gray-200 evening:hover:text-evening-primary group"
-                  >
-                    <span className="mr-2">Connect</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </a>
-                </div>
+                {/* --- GITHUB BOX --- */}
+                <a
+                  href="https://github.com/ShubhamModi032006"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block bg-white dark:bg-[#030712] evening:bg-white p-6 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300" // Added 'group block' and hover effect here
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <Github className="w-8 h-8 text-gray-800 dark:text-gray-200 evening:text-evening-primary mb-4" />
+                    <h4 className="text-lg font-medium text-gray-900 dark:text-gray-100 evening:text-evening-primary mb-1">GitHub</h4>
+                    <p className="text-gray-600 dark:text-gray-400 evening:text-evening-foreground mb-4">ShubhamModi032006</p>
+                    <div className="inline-flex items-center text-gray-600 dark:text-gray-400 evening:text-evening-foreground group-hover:text-gray-900 dark:group-hover:text-gray-200 evening:group-hover:text-evening-primary">
+                      <span className="mr-2">Visit profile</span>
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </div>
+                  </div>
+                </a>
+
+                {/* --- LINKEDIN BOX --- */}
+                <a
+                  href="https://www.linkedin.com/in/shubham-modi-cg/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block bg-white dark:bg-[#030712] evening:bg-white p-6 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300" // Added 'group block' and hover effect here
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <Linkedin className="w-8 h-8 text-gray-800 dark:text-gray-200 evening:text-evening-primary mb-4" />
+                    <h4 className="text-lg font-medium text-gray-900 dark:text-gray-100 evening:text-evening-primary mb-1">LinkedIn</h4>
+                    <p className="text-gray-600 dark:text-gray-400 evening:text-evening-foreground mb-4">shubham-modi-cg</p>
+                    <div className="inline-flex items-center text-gray-600 dark:text-gray-400 evening:text-evening-foreground group-hover:text-gray-900 dark:group-hover:text-gray-200 evening:group-hover:text-evening-primary">
+                      <span className="mr-2">Connect</span>
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </div>
+                  </div>
+                </a>
               </div>
             </div>
           </FadeInSection>
