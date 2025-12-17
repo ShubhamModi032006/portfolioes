@@ -65,8 +65,8 @@ export default function About() {
             className="md:col-span-2 p-8 bg-white/40 dark:bg-gray-900/40 backdrop-blur-md border border-white/40 dark:border-white/10 rounded-3xl shadow-xl hover:shadow-2xl  transition-all duration-300"
           >
             <div className="flex items-start gap-5">
-              <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-2xl hidden sm:block">
-                <Code2 className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+              <div className="p-3 bg-zinc-300 dark:bg-blue-900/30 rounded-2xl hidden sm:block">
+                <Code2 className="w-8 h-8 text-black dark:text-stone-400" />
               </div>
               <div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">The Developer Journey</h3>
@@ -91,8 +91,8 @@ export default function About() {
             <div className="p-4 bg-green-100 dark:bg-green-900/30 rounded-full mb-4">
               <Globe className="w-8 h-8 text-green-600 dark:text-green-400" />
             </div>
-            <h3 className="text-5xl font-bold text-gray-900 dark:text-white mb-1">10+</h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wider font-semibold">Projects Completed</p>
+            <h3 className="text-5xl font-bold text-gray-900 dark:text-white mb-1">#3</h3>
+            <p className="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wider font-semibold">Full-Stack Projects</p>
           </motion.div>
 
           {/* 3. Tech Stack: Frontend */}
@@ -139,7 +139,7 @@ export default function About() {
             </div>
             <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Creative & Games</h4>
             <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-              Pushing logic limits with multiplayer games and interactive web clones using TypeScript and modern web standards.
+              Pushing logic limits to create games and interactive web clones using  modern web standards.
             </p>
           </motion.div>
 
