@@ -1,147 +1,92 @@
-import { LayoutGrid, Code, Server } from "lucide-react"
+import { motion } from "framer-motion"
 import { useTheme } from "./ThemeProvider"
-import { motion, useInView } from "framer-motion"
-import { useRef, useEffect, useState } from "react"
 import FadeInSection from "./FadeInSection"
 
-const AnimatedCounter = ({ end, duration = 2, suffix = "" }) => {
-  const [count, setCount] = useState(0)
-  const countRef = useRef(null)
-  const isInView = useInView(countRef, { once: true })
+const lineOne = "Web Development • UI/UX Design • Backend Architecture • System Design • "
+const lineTwo = "MERN Stack • Creative Frontend • Database Management • API Integration • "
 
-  useEffect(() => {
-    if (isInView) {
-      let startTime
-      let animationFrame
-
-      const animate = (currentTime) => {
-        if (!startTime) startTime = currentTime
-        const progress = Math.min((currentTime - startTime) / (duration * 1000), 1)
-        
-        const easeOutQuart = 1 - Math.pow(1 - progress, 4)
-        setCount(Math.floor(easeOutQuart * end))
-
-        if (progress < 1) {
-          animationFrame = requestAnimationFrame(animate)
-        }
-      }
-
-      animationFrame = requestAnimationFrame(animate)
-      return () => cancelAnimationFrame(animationFrame)
-    }
-  }, [isInView, end, duration])
-
-  return <span ref={countRef}>{count}{suffix}</span>
+const marqueeVariants = {
+  animate: (direction) => ({
+    x: direction === "left" ? [0, -1035] : [-1035, 0],
+    transition: {
+      x: {
+        repeat: Infinity,
+        repeatType: "loop",
+        duration: 20,
+        ease: "linear",
+      },
+    },
+  }),
 }
 
-const gridItems = [
-  {
-    icon: <LayoutGrid className="w-12 h-12" />,
-    label: "Web Designer",
-    description: "Web Designer",
-    type: "stat",
-    bgColor: "bg-[#E9F0E6] dark:bg-gray-800 evening:bg-[#D1D9CF]",
-    iconColor: "text-gray-800 dark:text-gray-300 evening:text-evening-primary",
-    borderColor: "border-[#030712] dark:border-gray-700 evening:border-evening-primary"
-  },
-  {
-    icon: <Code className="w-12 h-12" />,
-    label: "UI/UX Designer", 
-    description: "UI/UX Designer",
-    type: "stat",
-    bgColor: "bg-[#E9F0E6] dark:bg-gray-800 evening:bg-[#D1D9CF]",
-    iconColor: "text-gray-800 dark:text-gray-300 evening:text-evening-primary",
-    borderColor: "border-[#030712] dark:border-gray-700 evening:border-evening-primary"
-  },
-  {
-    icon: <Server className="w-12 h-12" />,
-    label: "Backend Developer",
-    description: "Backend Developer", 
-    type: "stat",
-    bgColor: "bg-[#E9F0E6] dark:bg-gray-800 evening:bg-[#D1D9CF]",
-    iconColor: "text-gray-800 dark:text-gray-300 evening:text-evening-primary",
-    borderColor: "border-[#030712] dark:border-gray-700 evening:border-evening-primary"
-  }
-]
-
 export default function Services() {
-  const { theme } = useTheme();
-  
-  // Define theme-specific styles
-  const getBoxStyles = () => {
-    switch(theme) {
-      case 'dark':
-        return {
-          background: 'bg-gray-800',
-          border: 'border-gray-700',
-          hoverBg: 'hover:bg-[#030712]'
-        };
-      case 'evening':
-        return {
-          background: 'bg-[#D1D9CF]',
-          border: 'border-evening-primary',
-          hoverBg: 'hover:bg-[#B0BEC5]'
-        };
-      default: // light theme
-        return {
-          background: 'bg-[#E9F0E6]',
-          border: 'border-[#030712]',
-          hoverBg: 'hover:bg-[#C9C7BA]'
-        };
-    }
-  };
-
-  const boxStyles = getBoxStyles();
-  
   return (
-    <section id="services" className="py-16 md:py-24 dark:bg-gray-900 evening:bg-evening-background">
-      <div className="">
-        <FadeInSection duration={0.3}>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 evening:text-evening-primary mb-2">Services</h2>
-            <p className="text-gray-600 dark:text-gray-400 evening:text-evening-foreground">What I offer</p>
+    <section 
+      id="services" 
+      className="py-24 md:py-32 relative w-screen left-1/2 -translate-x-1/2 min-h-[50vh] flex flex-col justify-center overflow-hidden"
+    >
+      {/* Background Overlay */}
+      <div className="relative z-10 w-full">
+        
+        {/* Header */}
+        <FadeInSection>
+          <div className="text-center mb-16 px-4">
+            <h2 className="text-xl md:text-2xl font-bold tracking-widest uppercase text-blue-600 dark:text-blue-400 evening:text-evening-primary mb-2">
+              What I Do
+            </h2>
+            <div className="w-12 h-1 bg-gray-900 dark:bg-white evening:bg-evening-secondary mx-auto rounded-full"></div>
           </div>
         </FadeInSection>
 
-        {/* Connected Horizontal Grid Layout */}
-        <FadeInSection duration={0.4}>
-          <div className="max-w-6xl mx-auto">
-            <div className="border-2 border-gray-800 dark:border-gray-300 evening:border-evening-primary flex flex-col md:flex-row">
-              {gridItems.map((item, index) => (
-                <motion.div
-                  key={index}
-                  className={`${boxStyles.background} ${boxStyles.hoverBg} p-6 md:p-8 text-center relative flex-1 transition-colors duration-200 ${
-                    index !== gridItems.length - 1 ? `border-b-2 md:border-b-0 md:border-r-2 ${boxStyles.border}` : ''
-                  }`}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
+        {/* --- Marquee Section --- */}
+        <div className="flex flex-col gap-8 md:gap-12 w-full">
+
+          {/* Row 1: Moving Left (Filled Text) */}
+          {/* w-full added to ensure the strip goes edge to edge */}
+          <div className="w-full relative flex overflow-hidden -rotate-2 bg-white/50 dark:bg-gray-800/50 evening:bg-[#D1D9CF]/50 backdrop-blur-sm py-6 border-y border-gray-200 dark:border-gray-700 evening:border-evening-secondary/30 shadow-sm scale-110">
+            <motion.div
+              className="flex whitespace-nowrap"
+              variants={marqueeVariants}
+              animate="animate"
+              custom="left"
+            >
+              {[...Array(6)].map((_, i) => ( // Increased array to 6 to ensure no empty gaps on ultra-wide screens
+                <span 
+                  key={i} 
+                  className="text-6xl md:text-8xl font-black text-gray-900 dark:text-white evening:text-evening-primary mr-16"
                 >
-
-                  {/* Content */}
-                  <div className="flex flex-col items-center justify-center h-full">
-                    {/* Icon */}
-                    <motion.div 
-                      className={`${item.iconColor} mb-4 md:mb-6`}
-                      whileHover={{ rotate: 360, scale: 1.1 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <div className="w-8 h-8 md:w-12 md:h-12">
-                        {item.icon}
-                      </div>
-                    </motion.div>
-                    
-                    {/* Label */}
-                    <h3 className="text-xs sm:text-sm font-medium text-gray-900 dark:text-gray-100 evening:text-evening-primary whitespace-normal md:whitespace-nowrap">
-                      {item.label.toUpperCase()}
-                    </h3>
-                  </div>
-                </motion.div>
+                  {lineOne}
+                </span>
               ))}
-            </div>
+            </motion.div>
           </div>
-        </FadeInSection>
+
+          {/* Row 2: Moving Right (Outlined Text) */}
+          <div className="w-full relative flex overflow-hidden rotate-1 py-4 scale-110">
+            <motion.div
+              className="flex whitespace-nowrap"
+              variants={marqueeVariants}
+              animate="animate"
+              custom="right"
+            >
+              {[...Array(6)].map((_, i) => (
+                <span 
+                  key={i} 
+                  className="text-6xl md:text-8xl font-black mr-16 text-transparent bg-clip-text stroke-text evening:text-transparent"
+                  style={{
+                    WebkitTextStroke: '2px',
+                    WebkitTextStrokeColor: 'currentColor', 
+                  }}
+                >
+                  <span className="text-gray-300 dark:text-gray-700 evening:text-evening-primary/30">
+                    {lineTwo}
+                  </span>
+                </span>
+              ))}
+            </motion.div>
+          </div>
+
+        </div>
       </div>
     </section>
   )
