@@ -3,7 +3,7 @@ import { useTheme } from "./ThemeProvider"
 import FadeInSection from "./FadeInSection"
 
 const lineOne = "Web Development • UI/UX Design • Backend Architecture • System Design • "
-const lineTwo = "MERN Stack • Creative Frontend • Database Management • API Integration • "
+const lineTwo = "MERN Stack • Responsive Frontend • Database Management • API Integration • "
 
 const marqueeVariants = {
   animate: (direction) => ({
