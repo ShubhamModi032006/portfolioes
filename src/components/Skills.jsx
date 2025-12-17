@@ -2,16 +2,16 @@ import { motion } from "framer-motion"
 import FadeInSection from "./FadeInSection"
 import {
   Code2, Database, Wrench, Globe, Server, Terminal, Cpu, Layout,
-  Braces, Layers, Box, GitBranch, Cloud, Lock, Zap
+  Braces, Layers, Box, GitBranch, Cloud, Lock, Zap, ShieldCheck
 } from "lucide-react"
 
 // --- Configuration: Skill Data ---
 
 const coreStack = [
+  { name: "MongoDB", icon: <Database className="w-8 h-8 text-[#47A248]" />, color: "bg-[#47A248]/10 border-[#47A248]/20" },
+  { name: "Express", icon: <Terminal className="w-8 h-8 text-gray-500 dark:text-gray-300" />, color: "bg-gray-500/10 border-gray-500/20" },
   { name: "React", icon: <Code2 className="w-8 h-8 text-[#61DAFB]" />, color: "bg-[#61DAFB]/10 border-[#61DAFB]/20" },
   { name: "Node.js", icon: <Server className="w-8 h-8 text-[#339933]" />, color: "bg-[#339933]/10 border-[#339933]/20" },
-  { name: "Express", icon: <Terminal className="w-8 h-8 text-gray-500 dark:text-gray-300" />, color: "bg-gray-500/10 border-gray-500/20" },
-  { name: "MongoDB", icon: <Database className="w-8 h-8 text-[#47A248]" />, color: "bg-[#47A248]/10 border-[#47A248]/20" },
 ]
 
 const skillCategories = [
@@ -19,6 +19,7 @@ const skillCategories = [
     title: "Frontend Engineering",
     icon: <Layout className="w-5 h-5 text-purple-500" />,
     skills: [
+      { name: "React (JSX)", icon: <Braces className="text-blue-400" /> }, // ADDED
       { name: "JavaScript (ES6+)", icon: <Braces className="text-yellow-400" /> },
       { name: "TypeScript", icon: <Braces className="text-blue-500" /> },
       { name: "Tailwind CSS", icon: <Layers className="text-teal-400" /> },
@@ -31,24 +32,27 @@ const skillCategories = [
     title: "Backend & Architecture",
     icon: <Server className="w-5 h-5 text-green-500" />,
     skills: [
-      { name: "REST APIs", icon: <Globe className="text-blue-400" /> },
-      { name: "Redis", icon: <Database className="text-red-500" /> },
+      { name: "Node.js", icon: <Server className="text-green-500" /> }, // ADDED
+      { name: "Express.js", icon: <Globe className="text-gray-500" /> }, // ADDED
+      { name: "MongoDB (Mongoose)", icon: <Database className="text-green-700" /> }, // ADDED
+      { name: "REST API Development & Integration", icon: <Globe className="text-blue-400" /> }, // Consolidated REST API skills
+      { name: "Authentication & Authorization (JWT)", icon: <Lock className="text-yellow-500" /> },
+      { name: "Role-Based Access Control (RBAC)", icon: <ShieldCheck className="text-red-500" /> }, // ADDED
       { name: "C++ (DSA)", icon: <Cpu className="text-blue-600" /> },
-      { name: "Auth (JWT)", icon: <Lock className="text-yellow-500" /> },
-      { name: "SQL", icon: <Database className="text-indigo-400" /> },
     ]
   },
   {
-    title: "DevOps & Tools",
+    title: "Tools",
     icon: <Wrench className="w-5 h-5 text-orange-500" />,
     skills: [
       { name: "Git & GitHub", icon: <GitBranch className="text-red-500" /> },
-      { name: "Docker", icon: <Box className="text-blue-500" /> },
       { name: "Postman", icon: <Globe className="text-orange-500" /> },
       { name: "Vercel", icon: <Cloud className="text-black dark:text-white" /> },
+      { name: "Netlify", icon: <Cloud className="text-teal-400" /> }, // ADDED
+      { name: "Render", icon: <Cloud className="text-blue-600" /> }, // ADDED
     ]
   }
-]
+];
 
 // --- Components ---
 
