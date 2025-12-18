@@ -1,0 +1,18 @@
+# **********************************************
+# robots.txt for Shubham Modi's Portfolio
+# Domain: https://shubhammodi.netlify.app
+# **********************************************
+
+# 1. ALLOW ALL CRAWLERS
+# This rule tells all search engine crawlers (User-agent: *) that they can access
+# and crawl every part of your public website (Disallow: none).
+
+User-agent: *
+Disallow: 
+Allow: /
+
+# 2. DECLARE SITEMAP LOCATION
+# This is the most important part for improving indexing. 
+# It tells all major search engines exactly where to find your sitemap.xml file.
+
+Sitemap: https://shubhammodi.netlify.app/sitemap.xml
