@@ -180,12 +180,11 @@ export default function LoadingScreen() {
 
   if (!isLoading) return null
 
-  // Determine colors based on theme
-  const isDark = mounted && theme === "dark"
-  const isEvening = mounted && theme === "evening"
-  const bgColor = isDark ? "bg-gray-900" : isEvening ? "bg-evening-background" : "bg-white"
-  const blobColor = isDark ? "bg-gray-400" : isEvening ? "bg-evening-secondary" : "bg-gray-800"
-  const strokeColor = isDark ? "stroke-gray-300" : isEvening ? "stroke-evening-foreground" : "stroke-gray-700"
+  // Use semantic tokens so colors follow any theme (light/dark/evening)
+  const bgColor = "bg-background"
+  const blobColor = "bg-foreground"
+  const strokeColor = "stroke-destructive"
+  const textColor = "text-primary"
 
   // Animation variants for each character
   const letterVariants = {
@@ -300,7 +299,7 @@ export default function LoadingScreen() {
         {/* --- Animated Text --- */}
         <div className="absolute inset-0 flex items-center justify-center">
           <motion.h2
-            className="text-4xl font-extrabold tracking-wider"
+            className={`text-4xl font-extrabold tracking-wider ${textColor}`}
             initial="hidden"
             animate="visible"
           >

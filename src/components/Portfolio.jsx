@@ -146,15 +146,15 @@ export default function Portfolio() {
   }
 
   return (
-    <section id="portfolio" className="py-20 bg-white dark:bg-gray-950 evening:bg-evening-background text-gray-900 dark:text-white evening:text-evening-primary min-h-screen">
+    <section id="portfolio" className="py-20 bg-background text-foreground transition-colors min-h-screen">
       <div className="container mx-auto px-4">
         
         {/* --- Header --- */}
         <FadeInSection duration={0.3}>
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Selected Work</h2>
-            <div className="w-20 h-1 bg-blue-600 dark:bg-blue-500 evening:bg-evening-secondary mx-auto rounded-full mb-4"></div>
-            <p className="text-gray-600 dark:text-gray-400 evening:text-evening-foreground max-w-xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Selected Work</h2>
+            <div className="w-20 h-1 bg-secondary mx-auto rounded-full mb-4"></div>
+            <p className="text-muted-foreground max-w-xl mx-auto">
               A collection of projects exploring web development, design systems, and creative prototypes.
             </p>
           </div>
@@ -170,8 +170,8 @@ export default function Portfolio() {
                 className={cn(
                   "px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border",
                   activeCategory === category
-                    ? "bg-gray-900 dark:bg-white evening:bg-evening-primary text-white dark:text-black evening:text-evening-background border-transparent shadow-lg transform scale-105"
-                    : "bg-transparent border-gray-300 dark:border-gray-700 evening:border-evening-secondary text-gray-600 dark:text-gray-400 evening:text-evening-primary hover:bg-gray-100 dark:hover:bg-gray-800 evening:hover:bg-evening-secondary/20"
+                    ? "bg-primary text-primary-foreground border-transparent shadow-lg transform scale-105"
+                    : "bg-transparent border-border text-muted-foreground hover:bg-card/60"
                 )}
               >
                 {category}
@@ -188,10 +188,9 @@ export default function Portfolio() {
                 key={project.id}
                 className={cn(
                   "break-inside-avoid relative rounded-2xl overflow-hidden transition-all duration-300 group",
-                  "border border-white/60 dark:border-white/10 evening:border-evening-secondary",
-                  "shadow-lg hover:shadow-xl hover:-translate-y-2 border-white/80 dark:border-gray-700 evening:border-evening-secondary/80",
-                  // Theme Colors matched to Skills/About
-                  "bg-white/60 dark:bg-gray-800/60 evening:bg-[#D1D9CF]/60 backdrop-blur-md"
+                  "border border-border/60",
+                  "shadow-lg hover:shadow-xl hover:-translate-y-2",
+                  "bg-card/70 backdrop-blur-md"
                 )}
               >
                 {/* Image Container */}
@@ -203,14 +202,14 @@ export default function Portfolio() {
                   />
                   
                   {/* Overlay on Hover */}
-                  <div className="absolute inset-0 bg-black/40 dark:bg-black/60 evening:bg-[#D1D9CF]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
                     <div className="flex gap-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                       {project.github && (
                         <a
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-3 bg-white dark:bg-gray-800 evening:bg-evening-primary rounded-full text-gray-900 dark:text-white evening:text-evening-background hover:scale-110 transition-transform"
+                          className="p-3 bg-card rounded-full text-foreground hover:scale-110 transition-transform border border-border/60"
                           title="View Code"
                         >
                           <Github className="w-5 h-5" />
@@ -220,7 +219,7 @@ export default function Portfolio() {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-3 bg-white dark:bg-gray-800 evening:bg-evening-primary rounded-full text-gray-900 dark:text-white evening:text-evening-background hover:scale-110 transition-transform"
+                        className="p-3 bg-card rounded-full text-foreground hover:scale-110 transition-transform border border-border/60"
                         title="Live Demo"
                       >
                         <ExternalLink className="w-5 h-5" />
@@ -233,16 +232,16 @@ export default function Portfolio() {
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-3">
                     <div>
-                      <span className="text-xs font-bold tracking-wider text-blue-600 dark:text-blue-400 evening:text-evening-primary uppercase mb-1 block">
+                      <span className="text-xs font-bold tracking-wider text-secondary uppercase mb-1 block">
                         {project.category}
                       </span>
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white evening:text-evening-primary leading-tight">
+                      <h3 className="text-xl font-bold text-primary leading-tight">
                         {project.title}
                       </h3>
                     </div>
                   </div>
 
-                  <p className="text-gray-600 dark:text-gray-300 evening:text-evening-foreground text-sm leading-relaxed mb-4 line-clamp-3">
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
                     {project.description}
                   </p>
 
@@ -250,7 +249,7 @@ export default function Portfolio() {
                     {project.technologies && project.technologies.slice(0, 3).map((tech, index) => (
                       <span 
                         key={index} 
-                        className="text-xs font-medium px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-700 evening:bg-[#E9F0E6] text-gray-700 dark:text-gray-200 evening:text-evening-primary border border-gray-200 dark:border-gray-600 evening:border-gray-400"
+                        className="text-xs font-medium px-2.5 py-1 rounded-md bg-card border border-border/60 text-foreground"
                       >
                         {tech}
                       </span>
@@ -258,12 +257,12 @@ export default function Portfolio() {
                   </div>
 
                   {project.demoVideo && (
-                    <div className="pt-4 border-t border-gray-100 dark:border-gray-700 evening:border-gray-400/50">
+                    <div className="pt-4 border-t border-border/60">
                        <VideoButton
                         videoUrl={project.demoVideo}
                         videoTitle={`${project.title} Demo`}
                         text="Watch Preview"
-                        className="w-full justify-center text-sm border border-gray-200 dark:border-gray-700 evening:border-evening-secondary text-gray-700 dark:text-gray-300 evening:text-evening-primary hover:bg-gray-50 dark:hover:bg-gray-800 evening:hover:bg-[#E9F0E6]"
+                        className="w-full justify-center text-sm border border-border/60 text-foreground hover:bg-card/60"
                       />
                     </div>
                   )}

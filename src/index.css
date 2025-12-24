@@ -2,232 +2,161 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ensure proper theme transitions */
-html.dark {
-  color-scheme: dark;
-}
-
-html.evening {
-  color-scheme: light;
-}
-
-/* Add smooth transitions for theme changes */
-* {
-  transition-property: color, background-color, border-color;
-  transition-duration: 200ms;
-  transition-timing-function: ease-in-out;
-}
-
+/* =========================================
+   THEME VARIABLES
+   ========================================= */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    /* 1. LIGHT THEME */
+    /* Based on your custom 'white' and 'black' */
+    --background: #F1FAEE; /* Your custom white */
+    --foreground: #29292B; /* Your custom black */
+    
+    --card: #C9C7BA;
+    --card-foreground: #29292B;
+    
+    --popover: #C9C7BA;
+    --popover-foreground: #29292B;
+    
+    --primary: #29292B;
+    --primary-foreground: #C9C7BA;
+    
+    --secondary: #29292B;
+    --secondary-foreground: #C9C7BA;
+    
+    --muted: #b5b3a6; /* Slightly darker shade of C9C7BA */
+    --muted-foreground: #29292B;
+    
+    --accent: #29292B;
+    --accent-foreground: #C9C7BA;
+    
+    --destructive: #893700;
+    --destructive-foreground: #C9C7BA;
+    
+    --border: #29292B;
+    --input: #29292B;
+    --ring: #29292B;
+    
     --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* 2. DARK THEME */
+    /* Swapped: Background is your custom black, Text is your custom white */
+    --background: #030712; 
+    --foreground: #F1FAEE;
+    
+    --card: #29292B;
+    --card-foreground: #F1FAEE;
+    
+    --popover: #29292B;
+    --popover-foreground: #F1FAEE;
+    
+    --primary: #F1FAEE;
+    --primary-foreground: #29292B;
+    
+    --secondary: #F1FAEE;
+    --secondary-foreground: #29292B;
+    
+    --muted: #333336; /* Slightly lighter shade of 29292B */
+    --muted-foreground: #F1FAEE;
+    
+    --accent: #F1FAEE;
+    --accent-foreground: #29292B;
+    
+    --destructive: #00ff9d;
+    --destructive-foreground: #F1FAEE;
+    
+    --border: #F1FAEE;
+    --input: #F1FAEE;
+    --ring: #F1FAEE;
   }
 
   .evening {
-    --background: 200 14% 76%; /* #B0BEC5 cool grey */
-    --foreground: 30 3% 25%; /* #4A3F35 much darker warm taupe */
-    --card: 200 14% 76%; /* #B0BEC5 cool grey */
-    --card-foreground: 30 3% 25%; /* #4A3F35 much darker warm taupe */
-    --popover: 200 14% 76%; /* #B0BEC5 cool grey */
-    --popover-foreground: 30 3% 25%; /* #4A3F35 much darker warm taupe */
-    --primary: 30 3% 12%; /* #1F1E1C warm dark gray */
-    --primary-foreground: 200 14% 76%; /* #B0BEC5 cool grey */
-    --secondary: 200 25% 25%; /* #2F4F4F dark slate gray */
-    --secondary-foreground: 200 14% 76%; /* #B0BEC5 cool grey */
-    --muted: 200 25% 25%; /* #2F4F4F dark slate gray */
-    --muted-foreground: 30 3% 25%; /* #4A3F35 much darker warm taupe */
-    --accent: 200 25% 25%; /* #2F4F4F dark slate gray */
-    --accent-foreground: 200 14% 76%; /* #B0BEC5 cool grey */
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 200 14% 76%; /* #B0BEC5 cool grey */
-    --border: 200 25% 25%; /* #2F4F4F dark slate gray */
-    --input: 200 25% 25%; /* #2F4F4F dark slate gray */
-    --ring: 30 3% 12%; /* #1F1E1C warm dark gray */
-    --chart-1: 30 3% 25%; /* #4A3F35 much darker warm taupe */
-    --chart-2: 200 25% 25%; /* #2F4F4F dark slate gray */
-    --chart-3: 30 3% 12%; /* #1F1E1C warm dark gray */
-    --chart-4: 200 14% 76%; /* #B0BEC5 cool grey */
-    --chart-5: 30 3% 25%; /* #4A3F35 much darker warm taupe */
-    --sidebar-background: 200 14% 76%; /* #B0BEC5 cool grey */
-    --sidebar-foreground: 30 3% 25%; /* #4A3F35 much darker warm taupe */
-    --sidebar-primary: 30 3% 12%; /* #1F1E1C warm dark gray */
-    --sidebar-primary-foreground: 200 14% 76%; /* #B0BEC5 cool grey */
-    --sidebar-accent: 200 25% 25%; /* #2F4F4F dark slate gray */
-    --sidebar-accent-foreground: 200 14% 76%; /* #B0BEC5 cool grey */
-    --sidebar-border: 200 25% 25%; /* #2F4F4F dark slate gray */
-    --sidebar-ring: 30 3% 12%; /* #1F1E1C warm dark gray */
+    /* 3. EVENING THEME (Restored specific palette) */
+    --background: #B0BEC5; /* Cool Grey */
+    --foreground: #2F2D2A; /* Darker Warm Taupe */
+    
+    --card: #B0BEC5;
+    --card-foreground: #2F2D2A;
+    
+    --popover: #B0BEC5;
+    --popover-foreground: #2F2D2A;
+    
+    --primary: #1F1E1C; /* Warm Dark Gray */
+    --primary-foreground: #B0BEC5;
+    
+    --secondary: #2F4F4F; /* Dark Slate Gray */
+    --secondary-foreground: #B0BEC5;
+    
+    --muted: #2F4F4F;
+    --muted-foreground: #2F2D2A;
+    
+    --accent: #2F4F4F;
+    --accent-foreground: #B0BEC5;
+    
+    --destructive: #25009e;
+    --destructive-foreground: #B0BEC5;
+    
+    --border: #2F4F4F; /* Using Secondary color for borders */
+    --input: #2F4F4F;
+    --ring: #1F1E1C;
   }
 }
 
+/* =========================================
+   BASE STYLES
+   ========================================= */
 @layer base {
   * {
-    @apply border-[#e5e7eb] dark:border-gray-800 evening:border-[#2F4F4F];
+    @apply border-border;
   }
+  
+  html, body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: 'Montserrat Alternates', sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
   }
   
-  /* Typography hierarchy with Kode Mono + Montserrat Alternates */
+  /* Typography */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat Alternates', sans-serif;
     font-weight: 600;
   }
   
-  h1 {
-    font-weight: 700;
-  }
-  
-  h2 {
-    font-weight: 600;
-  }
+  h1 { font-weight: 700; }
   
   p, span, div {
     font-family: 'Montserrat Alternates', sans-serif;
     font-weight: 400;
   }
   
-  /* Code and technical elements */
   code, pre, .code, .font-mono {
     font-family: 'Kode Mono', monospace !important;
     font-weight: 400;
   }
   
-  /* Button and interactive elements */
-  button, .btn {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 500;
-  }
-  
-  /* Navigation elements */
-  nav, .nav {
+  button, .btn, nav, .nav {
     font-family: 'Montserrat Alternates', sans-serif;
     font-weight: 500;
   }
 }
 
-/* Evening theme background variants */
-@layer utilities {
-  .evening\:bg-gray-50 {
-    background-color: #B0BEC5;
-  }
-  
-  .evening\:bg-gray-100 {
-    background-color: #B0BEC5;
-  }
-  
-  .evening\:bg-gray-200 {
-    background-color: #B0BEC5;
-  }
-  
-  .evening\:bg-gray-300 {
-    background-color: #B0BEC5;
-  }
-  
-  .evening\:bg-gray-400 {
-    background-color: #B0BEC5;
-  }
-  
-  .evening\:bg-gray-500 {
-    background-color: #B0BEC5;
-  }
-  
-  .evening\:bg-gray-600 {
-    background-color: #B0BEC5;
-  }
-  
-  .evening\:bg-gray-700 {
-    background-color: #B0BEC5;
-  }
-  
-  .evening\:bg-gray-800 {
-    background-color: #B0BEC5;
-  }
-  
-  .evening\:bg-gray-900 {
-    background-color: #B0BEC5;
-  }
-  
-  .evening\:bg-white {
-    background-color: #B0BEC5;
-  }
+/* =========================================
+   UTILITIES & ANIMATIONS
+   ========================================= */
+.text-balance {
+  text-wrap: balance;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-/* Fade In Animation Styles */
 .fade-in-section {
   opacity: 0;
   transform: translateY(20px);
@@ -239,4 +168,164 @@ html.evening {
 .fade-in-section.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 0.4; }
+  100% { transform: scale(0.8); opacity: 0; }
+}
+
+/* =========================================
+   COMPONENT STYLES (Video Panel & Compact)
+   ========================================= */
+
+/* Compact Mode */
+.compact-mode {
+  transform: scale(1);
+  transform-origin: center top;
+  transition: transform 0.5s ease-in-out;
+  width: 65%;
+  margin: 0 auto 0 0;
+}
+
+.compact-mode main {
+  width: 100%;
+  padding-right: 0;
+}
+
+.compact-mode header,
+.compact-mode main > section,
+.compact-mode footer {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.compact-mode header { padding: 0.75rem 1.5rem; }
+.compact-mode section { padding-top: 2rem; padding-bottom: 2rem; }
+.compact-mode #portfolio .grid {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .compact-mode { width: 100%; padding-right: 0; }
+  .compact-mode main { padding-right: 0; }
+}
+
+/* Video Panel */
+#videoSection {
+  box-shadow: -5px 0 20px rgba(41, 41, 43, 0.1);
+  isolation: isolate;
+  z-index: 1000 !important;
+}
+
+.dark #videoSection {
+  box-shadow: -5px 0 20px rgba(201, 199, 186, 0.1); /* Updated to match C9C7BA tone */
+}
+
+.video-placeholder {
+  position: relative;
+  background-color: rgba(41, 41, 43, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+
+.dark .video-placeholder {
+  background-color: rgba(201, 199, 186, 0.05); /* Updated to match C9C7BA tone */
+}
+
+@media (max-width: 768px) {
+  #videoSection {
+    width: 100% !important;
+    height: 100vh !important;
+    position: fixed !important;
+    top: 0;
+    right: 0;
+    z-index: 50;
+  }
+}
+
+/* =========================================
+   CURSOR STYLES (Desktop Only)
+   ========================================= */
+@media (min-width: 769px) {
+  a, button, input, textarea, select, [role="button"] {
+    cursor: auto !important;
+  }
+
+  .video-panel-open {
+    overflow-y: auto !important;
+  }
+
+  .cursor-over-video {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
+  #videoSection *,
+  .use-default-cursor,
+  .video-panel-open #videoSection,
+  .video-panel-open #videoSection * {
+    cursor: default !important;
+  }
+
+  #videoSection video,
+  #videoSection button,
+  .video-panel-open #videoSection video,
+  .video-panel-open #videoSection button {
+    cursor: pointer !important;
+  }
+
+  .video-section {
+    pointer-events: auto !important;
+    position: fixed !important;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  .video-panel-open .cursor-container {
+    pointer-events: none !important;
+  }
+
+  .video-panel-open body > *:not(#videoSection):not(.cursor-container) {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cursor-container {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    pointer-events: none;
+    overflow: visible;
+  }
+
+  .cursor-outer,
+  .cursor-dot {
+    position: fixed !important;
+    will-change: transform;
+    pointer-events: none;
+  }
+
+  html, body {
+    cursor: auto !important;
+  }
+}
+
+@media (max-width: 768px) {
+  a, button, input, textarea, select, [role="button"], html, body {
+    cursor: auto !important;
+  }
+  a, button, [role="button"] {
+    cursor: pointer !important;
+  }
 }

@@ -33,7 +33,7 @@ export default function About() {
   }
 
   return (
-    <section id="about" className="min-h-screen flex flex-col justify-center py-20 relative bg-white dark:bg-gray-950 evening:bg-evening-background">
+    <section id="about" className="min-h-screen flex flex-col justify-center py-20 relative bg-background text-foreground transition-colors">
       
       <div className="container mx-auto px-4 z-10">
         

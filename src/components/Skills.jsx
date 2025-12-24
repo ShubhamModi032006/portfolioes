@@ -62,17 +62,14 @@ const CoreTechCard = ({ name, icon, color, delay }) => (
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay: delay * 0.1 }}
     viewport={{ once: true }}
-    // UPDATED: Added evening:bg-[#D1D9CF]
     className={`flex flex-col items-center justify-center p-6 rounded-2xl border backdrop-blur-sm shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ${color} bg-white/60 dark:bg-gray-800/60 evening:bg-[#D1D9CF]/60 evening:border-evening-secondary`}
   >
-    {/* UPDATED: Icon background for evening */}
     <div className="mb-3 p-3 bg-white dark:bg-gray-900 evening:bg-[#E9F0E6] rounded-full shadow-sm">{icon}</div>
     <span className="font-bold text-gray-800 dark:text-gray-100 evening:text-evening-primary">{name}</span>
   </motion.div>
 )
 
 const SkillBadge = ({ name, icon }) => (
-  // UPDATED: Badge styling for evening mode
   <div className="flex items-center gap-2 px-3 py-2 bg-white/50 dark:bg-gray-800/50 evening:bg-[#E9F0E6]/50 border border-gray-200 dark:border-gray-700 evening:border-gray-400 rounded-lg hover:bg-white hover:border-blue-300 dark:hover:border-blue-500 evening:hover:bg-[#F5F7F5] transition-colors shadow-sm group">
     <span className="group-hover:scale-110 transition-transform duration-300">{icon}</span>
     <span className="text-sm font-medium text-gray-700 dark:text-gray-200 evening:text-evening-primary">{name}</span>
@@ -85,11 +82,9 @@ const CategoryCard = ({ title, icon, skills, delay }) => (
     whileInView={{ opacity: 1, scale: 1 }}
     transition={{ duration: 0.5, delay: delay * 0.2 }}
     viewport={{ once: true }}
-    // UPDATED: Added evening:bg-[#D1D9CF]
     className="bg-white/40 dark:bg-gray-900/40 evening:bg-[#D1D9CF]/80 backdrop-blur-md border border-white/60 dark:border-white/10 evening:border-gray-400/50 rounded-3xl p-6 shadow-xl flex flex-col h-full"
   >
     <div className="flex items-center gap-3 mb-6 border-b border-gray-200 dark:border-gray-700 evening:border-gray-400 pb-4">
-      {/* UPDATED: Icon box for evening */}
       <div className="p-2 bg-white dark:bg-gray-800 evening:bg-[#E9F0E6] rounded-lg shadow-sm">{icon}</div>
       <h3 className="text-lg font-bold text-gray-900 dark:text-white evening:text-evening-primary">{title}</h3>
     </div>
@@ -114,12 +109,10 @@ export default function Skills() {
       }}
     >
       
-      {/* UPDATED OVERLAY: evening gradient matches your theme */}
       <div className="absolute inset-0 bg-gradient-to-b from-white/90 to-gray-50/90 dark:from-gray-900/95 dark:to-gray-800/95 evening:from-evening-background/90 evening:to-evening-background/95"></div>
 
       <div className="container mx-auto px-4 relative z-10">
 
-        {/* Header */}
         <FadeInSection>
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white evening:text-evening-primary mb-4">
@@ -132,14 +125,12 @@ export default function Skills() {
           </div>
         </FadeInSection>
 
-        {/* 1. Core Stack Highlights (Top Row) */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 max-w-5xl mx-auto">
           {coreStack.map((tech, idx) => (
             <CoreTechCard key={idx} {...tech} delay={idx} />
           ))}
         </div>
 
-        {/* 2. Detailed Categories (Masonry Grid) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {skillCategories.map((cat, idx) => (
             <CategoryCard key={idx} {...cat} delay={idx} />
