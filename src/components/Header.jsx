@@ -43,15 +43,15 @@ export default function Header() {
   // Check if device is mobile and set appropriate default header type
   useEffect(() => {
     const checkMobile = () => {
-      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-      const isMobileWidth = window.innerWidth <= 768;
-      const isMobileDevice = isTouchDevice || isMobileWidth;
-      
-      setIsMobile(isMobileDevice);
-      
-      // Set floating nav as default for all devices
+      const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0
+      const isMobileWidth = window.innerWidth <= 768
+      const isMobileDevice = isTouchDevice || isMobileWidth
+
+      setIsMobile(isMobileDevice)
+
+      // Set floating nav as default only for non-mobile devices
       if (!mounted) {
-        setShowFloatingNav(true);
+        setShowFloatingNav(!isMobileDevice)
       }
     };
 
@@ -63,6 +63,12 @@ export default function Header() {
       window.removeEventListener('resize', checkMobile);
     };
   }, [mounted]);
+
+  useEffect(() => {
+    if (isMobile && showFloatingNav) {
+      setShowFloatingNav(false)
+    }
+  }, [isMobile, showFloatingNav])
 
   // Simulate loading time similar to LoadingScreen component
   useEffect(() => {
