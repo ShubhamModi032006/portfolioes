@@ -12,7 +12,7 @@ const navLinks = [
   { name: "About", href: "#about", icon: <Briefcase className="w-[1.15rem] h-[1.15rem] sm:w-5 sm:h-5" /> },
   { name: "Skills", href: "#skills", icon: <Lightbulb className="w-[1.15rem] h-[1.15rem] sm:w-5 sm:h-5" /> },
   { name: "Services", href: "#services", icon: <Layers className="w-[1.15rem] h-[1.15rem] sm:w-5 sm:h-5" /> },
-  { name: "Portfolio", href: "#portfolio", icon: <Code2 className="w-[1.15rem] h-[1.15rem] sm:w-5 sm:h-5" /> },
+  { name: "Projects", href: "#portfolio", icon: <Code2 className="w-[1.15rem] h-[1.15rem] sm:w-5 sm:h-5" /> },
   { name: "Contact", href: "#contact", icon: <Phone className="w-[1.15rem] h-[1.15rem] sm:w-5 sm:h-5" /> },
 ]
 
@@ -280,7 +280,7 @@ export default function Header() {
             key={link.name}
             onClick={navButtonClick(() => scrollToSection(link.href))}
             className={cn(
-              "nav-btn p-2 sm:p-3 rounded-xl shadow-lg transition-all hover:scale-[1.3] h-10 sm:h-12 relative",
+              "nav-btn p-2 sm:p-3 rounded-xl shadow-lg transition-transform duration-300 ease-out hover:scale-[1.15] h-10 sm:h-12 relative group overflow-visible",
               activeSection === link.href.substring(1) 
                 ? "bg-gray-200 dark:bg-gray-700 evening:bg-[#B0BEC5]" 
                 : "bg-gray-100 dark:bg-gray-900 evening:bg-[#B0BEC5] hover:bg-gray-200 dark:hover:bg-gray-700 evening:hover:bg-[#B0BEC5]",
@@ -302,6 +302,9 @@ export default function Header() {
             }}
           >
             <span className="text-gray-900 dark:text-gray-100 evening:text-evening-primary inline-block pointer-events-none">{link.icon}</span>
+            <span className="absolute -bottom-7 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full text-[0.65rem] sm:text-xs font-semibold bg-gray-900/80 text-white dark:bg-white/90 dark:text-gray-900 evening:bg-evening-background evening:text-evening-primary opacity-0 translate-y-1 pointer-events-none transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0">
+              {link.name}
+            </span>
             <AnimatePresence>
               {activeSection === link.href.substring(1) && (
                 <motion.span
