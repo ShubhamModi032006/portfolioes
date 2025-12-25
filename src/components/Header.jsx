@@ -64,12 +64,6 @@ export default function Header() {
     };
   }, [mounted]);
 
-  useEffect(() => {
-    if (isMobile && showFloatingNav) {
-      setShowFloatingNav(false)
-    }
-  }, [isMobile, showFloatingNav])
-
   // Simulate loading time similar to LoadingScreen component
   useEffect(() => {
     const timer = setTimeout(() => {
