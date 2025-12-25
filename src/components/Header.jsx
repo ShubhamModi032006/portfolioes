@@ -73,6 +73,31 @@ export default function Header() {
     return () => clearTimeout(timer)
   }, [])
 
+  // Keep floating nav centered at the top on mobile
+  useEffect(() => {
+    if (!showFloatingNav || !isMobile) return
+
+    const centerFloatingNav = () => {
+      if (!nodeRef.current) return
+      const navWidth = nodeRef.current.offsetWidth || 0
+      const centeredX = Math.max((window.innerWidth - navWidth) / 2, 12)
+      const topY = 20
+
+      setPosition((prev) => {
+        if (Math.abs(prev.x - centeredX) < 1 && Math.abs(prev.y - topY) < 1) {
+          return prev
+        }
+        return { x: centeredX, y: topY }
+      })
+    }
+
+    // Allow layout to paint before measuring
+    requestAnimationFrame(centerFloatingNav)
+    window.addEventListener("resize", centerFloatingNav)
+
+    return () => window.removeEventListener("resize", centerFloatingNav)
+  }, [showFloatingNav, isMobile])
+
   // Set initial active section from URL hash
   useEffect(() => {
     const hash = window.location.hash.substring(1)
