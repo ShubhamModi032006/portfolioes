@@ -2,7 +2,7 @@ import { Globe, Github, Send, Twitter, Instagram, Code2 } from "lucide-react"
 import { Button } from "./ui/Button"
 import { motion } from "framer-motion"
 import { useVideo } from "./VideoContext"
-import VideoButton from "./VideoButton"
+
 import FadeInSection from "./FadeInSection"
 
 export default function Home() {
@@ -81,12 +81,7 @@ export default function Home() {
                     </Button>
                   </a>
 
-                  <VideoButton
-                    videoUrl="https://res.cloudinary.com/dqhn4dq02/video/upload/v1740999850/p5ditex5ags07kvajspz.mp4"
-                    videoTitle="FinCtrl Demo Video"
-                    text="Watch Demo"
-                    className="border border-border rounded-full px-6 py-3 hover:bg-card/60 transition-colors"
-                  />
+
                 </div>
 
                 {/* Status Indicator */}
@@ -107,9 +102,9 @@ export default function Home() {
             <FadeInSection duration={0.5}>
               <div className="relative order-1 md:order-3 mb-8 md:mb-0">
                 {/* Image Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary via-secondary to-accent rounded-full blur-[40px] opacity-40 transform scale-90"></div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary via-secondary to-accent rounded-3xl blur-[40px] opacity-40 transform scale-100"></div>
 
-                <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-[6px] border-card shadow-2xl mx-auto">
+                <div className="relative w-48 h-48 sm:w-64 sm:h-94 md:w-80 md:h-80 rounded-3xl overflow-hidden border-[6px] border-card shadow-2xl mx-auto">
                   <img
                     src="https://res.cloudinary.com/dqhn4dq02/image/upload/v1740113553/jm7lzaefxenoz27qzxfz.jpg"
                     alt="Shubham Modi"
