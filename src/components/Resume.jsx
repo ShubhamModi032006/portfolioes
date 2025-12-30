@@ -30,8 +30,8 @@ const Resume = () => {
 
       {/* Download Button */}
       <a
-        href="https://drive.google.com/file/d/1oklhsTdUrqervNohScwVhvXMESaEZn81/view"
-        download="https://drive.google.com/file/d/1oklhsTdUrqervNohScwVhvXMESaEZn81/view"
+        href="https://drive.google.com/file/d/1Y3xLQZPY8RYeQ_CNiWjOWVmiCN2_i7Mu/view?usp=sharing"
+        download="https://drive.google.com/file/d/1Y3xLQZPY8RYeQ_CNiWjOWVmiCN2_i7Mu/view?usp=sharing"
         target="_blank"
         rel="noopener noreferrer"
         className="mt-4 sm:mt-6 bg-green-600 hover:bg-green-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg transition duration-300"
